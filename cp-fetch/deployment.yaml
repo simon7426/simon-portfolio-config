@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fetcher
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: fetcher
+  template:
+    metadata:
+      labels:
+        app: fetcher
+    spec:
+      containers:
+      - name: fetcher
+        image: simon7426/vue-portfolio-leetcode:0.6
+        imagePullPolicy: Always
+        env:
+          - name: REDIS_SERVER
+            value: 'redis'
+        ports:
+        - containerPort: 8000
