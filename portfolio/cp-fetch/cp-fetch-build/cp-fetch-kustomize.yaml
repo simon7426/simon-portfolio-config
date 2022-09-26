@@ -1,0 +1,47 @@
+apiVersion: v1
+data:
+  REDIS_SERVER: redis
+kind: ConfigMap
+metadata:
+  labels:
+    app: fetcher
+  name: fetcher-configmap-b7bh8chd97
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: fetcher
+  name: fetcher-service
+spec:
+  ports:
+  - port: 8000
+    targetPort: 8000
+  selector:
+    app: fetcher
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: fetcher
+  name: fetcher
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: fetcher
+  template:
+    metadata:
+      labels:
+        app: fetcher
+    spec:
+      containers:
+      - envFrom:
+        - configMapRef:
+            name: fetcher-configmap-b7bh8chd97
+        image: simon7426/vue-portfolio-leetcode:0.6
+        imagePullPolicy: Always
+        name: fetcher
+        ports:
+        - containerPort: 8000

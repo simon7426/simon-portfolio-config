@@ -16,8 +16,8 @@ spec:
       - name: fetcher
         image: simon7426/vue-portfolio-leetcode:0.6
         imagePullPolicy: Always
-        env:
-          - name: REDIS_SERVER
-            value: 'redis'
+        envFrom:
+        - configMapRef:
+            name: fetcher-configmap
         ports:
         - containerPort: 8000

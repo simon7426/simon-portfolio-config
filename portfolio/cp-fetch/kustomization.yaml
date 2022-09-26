@@ -1,0 +1,15 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+commonLabels:
+  app: fetcher
+resources:
+- cp-fetch-deployment.yaml
+- cp-fetch-service.yaml
+images:
+- name: fetcher
+  newName: simon7426/vue-portfolio-leetcode
+  newTag: "0.6"
+configMapGenerator:
+- name: fetcher-configmap
+  envs:
+  - fetcher.properties
