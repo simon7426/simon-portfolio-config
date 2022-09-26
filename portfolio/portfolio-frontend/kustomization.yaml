@@ -6,6 +6,5 @@ resources:
 - portfolio-frontend-deployment.yaml
 - portfolio-frontend-service.yaml
 images:
-- name: redis
-  newName: simon7426/vue-portfolio-kubernetes
+- name: simon7426/vue-portfolio-kubernetes
   newTag: "0.2"

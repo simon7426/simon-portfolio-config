@@ -6,10 +6,9 @@ resources:
 - cp-fetch-deployment.yaml
 - cp-fetch-service.yaml
 images:
-- name: fetcher
-  newName: simon7426/vue-portfolio-leetcode
+- name: simon7426/vue-portfolio-leetcode
   newTag: "0.6"
 configMapGenerator:
-- name: fetcher-configmap
-  envs:
+- envs:
   - fetcher.properties
+  name: fetcher-configmap
