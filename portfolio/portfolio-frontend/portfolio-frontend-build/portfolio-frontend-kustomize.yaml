@@ -19,6 +19,7 @@ metadata:
   name: portfolio
 spec:
   replicas: 1
+  revisionHistoryLimit: 3
   selector:
     matchLabels:
       app: portfolio
