@@ -7,4 +7,4 @@ resources:
 - portfolio-frontend-service.yaml
 images:
 - name: simon7426/vue-portfolio-kubernetes
-  newTag: bc9c683
+  newTag: 53e1999
