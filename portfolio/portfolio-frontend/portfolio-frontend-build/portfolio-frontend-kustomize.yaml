@@ -29,7 +29,7 @@ spec:
         app: portfolio
     spec:
       containers:
-      - image: simon7426/vue-portfolio-kubernetes:04c5f7b
+      - image: simon7426/vue-portfolio-kubernetes:490ce05
         name: portfolio
         ports:
         - containerPort: 8080
